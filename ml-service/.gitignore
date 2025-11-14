@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual env
+venv/
+.env/
+.venv/
+
+# FastAPI / Uvicorn logs
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Cache
+.cache/
+*.pickle
+*.joblib
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Python dotenv
+.env
+
+# Models / data (ignore raw)
+data/
+models/
+*.model
+*.h5
+
+# Byte-compiled
+*.tmp
