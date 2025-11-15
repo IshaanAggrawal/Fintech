@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Eye, EyeOff, Lock, Mail, User } from "lucide-react";
+import { Eye, EyeOff, Lock, Mail, User, TrendingUp } from "lucide-react";
 import Link from "next/link";
 
 export default function SignupPage() {
@@ -18,19 +18,19 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted px-4 py-12">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-secondary px-4 py-12 pt-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
-        <div className="bg-card rounded-2xl shadow-xl p-8 border">
+        <div className="bg-gradient-card rounded-2xl shadow-xl p-8 border border-border">
           <div className="text-center mb-8">
-            <div className="mx-auto bg-primary/10 p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4">
-              <User className="w-8 h-8 text-primary" />
+            <div className="mx-auto bg-gradient-primary p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+              <TrendingUp className="w-8 h-8 text-primary-foreground" />
             </div>
-            <h1 className="text-3xl font-bold">Create Account</h1>
+            <h1 className="text-3xl font-bold text-foreground">Create Account</h1>
             <p className="text-muted-foreground mt-2">
               Get started with FinPredict today
             </p>
@@ -38,7 +38,7 @@ export default function SignupPage() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
+              <label htmlFor="name" className="block text-sm font-medium mb-2 text-foreground">
                 Full Name
               </label>
               <div className="relative">
@@ -52,14 +52,15 @@ export default function SignupPage() {
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="pl-10 w-full rounded-lg border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="pl-10 w-full rounded-lg border border-input bg-gradient-card px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-foreground"
                   placeholder="John Doe"
+                  suppressHydrationWarning
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
+              <label htmlFor="email" className="block text-sm font-medium mb-2 text-foreground">
                 Email Address
               </label>
               <div className="relative">
@@ -74,14 +75,15 @@ export default function SignupPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10 w-full rounded-lg border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="pl-10 w-full rounded-lg border border-input bg-gradient-card px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-foreground"
                   placeholder="you@example.com"
+                  suppressHydrationWarning
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium mb-2">
+              <label htmlFor="password" className="block text-sm font-medium mb-2 text-foreground">
                 Password
               </label>
               <div className="relative">
@@ -95,13 +97,15 @@ export default function SignupPage() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 w-full rounded-lg border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="pl-10 w-full rounded-lg border border-input bg-gradient-card px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-foreground"
                   placeholder="••••••••"
+                  suppressHydrationWarning
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                  suppressHydrationWarning
                 >
                   {showPassword ? (
                     <EyeOff className="h-5 w-5 text-muted-foreground" />
@@ -118,9 +122,10 @@ export default function SignupPage() {
                 name="terms"
                 type="checkbox"
                 required
-                className="h-4 w-4 text-primary focus:ring-primary border-muted-foreground rounded"
+                className="h-4 w-4 text-primary focus:ring-primary border-muted-foreground rounded bg-gradient-card"
+                suppressHydrationWarning
               />
-              <label htmlFor="terms" className="ml-2 block text-sm">
+              <label htmlFor="terms" className="ml-2 block text-sm text-foreground">
                 I agree to the{" "}
                 <Link href="/terms" className="font-medium text-primary hover:text-primary/80">
                   Terms of Service
@@ -134,14 +139,14 @@ export default function SignupPage() {
 
             <button
               type="submit"
-              className="w-full bg-primary text-primary-foreground py-3 px-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+              className="w-full bg-gradient-primary text-primary-foreground py-3 px-4 rounded-lg font-semibold hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
             >
               Create Account
             </button>
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-sm">
+            <p className="text-sm text-muted-foreground">
               Already have an account?{" "}
               <Link href="/login" className="font-medium text-primary hover:text-primary/80">
                 Sign in
